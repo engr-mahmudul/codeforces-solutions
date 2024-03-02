@@ -1,31 +1,20 @@
-def print_array(given_array, array_name):
-    for i in range(len(given_array)):
-        print("{}[{}] = {}".format(array_name,i,given_array[i]))
-    given_array.clear()
+def pow2(max_val):
+    powers_string =''
+    i = 0
+    while True:
+        if 2 ** i <= max_val:
+            if i == 0:
+                powers_string += str(2 ** i)
 
-store = [None]*15
-par = []
-impar = []
-for i in range(15):
-    store[i] = int(input())
+            else:
+                powers_string += ' ' + str(2 ** i)
 
+            i += 1
 
-for i in range(15):
-    if (store[i] % 2 == 0):
-        if len(par) < 5:
-            par.append(store[i])
         else:
-            print_array(par,"par")
-            par.append(store[i])
+            break
 
-    else:
-        if len(impar) < 5:
-            impar.append(store[i])
-        else:
-            print_array(impar,"impar")
-            impar.append(store[i])
+    return powers_string
 
-if len(impar) != 0:
-    print_array(impar, "impar")
-if len(par) != 0:
-    print_array(par, "par")
+
+print(pow2(64))
